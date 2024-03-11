@@ -18,15 +18,15 @@
 
 <section class="searchbar" id="searchbar">
     <div class="search">
-        <h2>Search</h2>
-        <form action="" class="search-bar">
-            <input type="text" placeholder="Enter search query" name="q">
-            <button type="submit"><img src="C:\Users\corey\PycharmProjects\gradAssist605\ui\images\drink.png"></button>
+        <h1>Search</h1>
+        <form action="/" method="post" class="search-bar">
+            <input type="text" placeholder="Search by name, phone, email, etc." name="query">
+            <button type="submit"><img src="static/images/search.png"></button>
         </form>
     </div>
-    <div class="search-results">
-        <h2>Search Results</h2>
-        <table id="search-table">
+    <div>
+       {% if customers %}
+        <table border="1">
             <thead>
                 <tr>
                     <th>Customer ID</th>
@@ -42,21 +42,25 @@
             </thead>
             <tbody>
                 {% for customer in customers %}
-                    <tr>
-                        <td>{{ customer.customer_id }}</td>
-                        <td>{{ customer.first_name }}</td>
-                        <td>{{ customer.last_name }}</td>
-                        <td>{{ customer.phone }}</td>
-                        <td>{{ customer.email }}</td>
-                        <td>{{ customer.street }}</td>
-                        <td>{{ customer.city }}</td>
-                        <td>{{ customer.state }}</td>
-                        <td>{{ customer.zipcode }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ customer[0] }}</td>
+                    <td>{{ customer[1] }}</td>
+                    <td>{{ customer[2] }}</td>
+                    <td>{{ customer[3] }}</td>
+                    <td>{{ customer[4] }}</td>
+                    <td>{{ customer[5] }}</td>
+                    <td>{{ customer[6] }}</td>
+                    <td>{{ customer[7] }}</td>
+                    <td>{{ customer[8] }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <p>No customers found.</p>
+        {% endif %}
     </div>
+
 </section>
 
 </body>
