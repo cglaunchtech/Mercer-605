@@ -1,17 +1,17 @@
 from flask import Flask, render_template, request
-from db.db import execute_query
+from db.queries import select_customers, search_customers
 
 app = Flask(__name__, template_folder='templates')
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        query = request.form.get('query', '')  # Get the search query from the form data
+        customers = search_customers(query)  # Perform customer search
+    else:
+        customers = select_customers()  # Fetch all customers
+    return render_template('index.html', customers=customers)
 
-@app.route('/execute_query', methods=['POST'])
-def execute_query_route():
-    query = request.form['query']
-    result = execute_query(query)
-    return render_template('query_result.html', result=result)
 
 if __name__ == '__main__':
     app.run()
