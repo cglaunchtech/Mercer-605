@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Search Web Application</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<section class="banner" id="banner">
+    <div class="banner-head">
+        <h2>ERDs</h2>
+        <p>
+            Place ERD's here so students can see the DB
+        </p>
+    </div>
+</section>
+
+<section class="searchbar" id="searchbar">
+    <div class="search">
+        <h1>Search</h1>
+        <form action="/" method="post" class="search-bar">
+            <input type="text" placeholder="Search by name, phone, email, etc." name="query">
+            <button type="submit"><img src="static/images/search.png"></button>
+        </form>
+    </div>
+    <div>
+       {% if customers %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zipcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer[0] }}</td>
+                    <td>{{ customer[1] }}</td>
+                    <td>{{ customer[2] }}</td>
+                    <td>{{ customer[3] }}</td>
+                    <td>{{ customer[4] }}</td>
+                    <td>{{ customer[5] }}</td>
+                    <td>{{ customer[6] }}</td>
+                    <td>{{ customer[7] }}</td>
+                    <td>{{ customer[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No customers found.</p>
+        {% endif %}
+    </div>
+
+</section>
+
+</body>
+</html>

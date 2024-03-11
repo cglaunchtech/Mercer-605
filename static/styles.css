@@ -5,6 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/*Top container ERD Banner*/
 .banner{
     width: 100%;
     min-height: 100vh;
@@ -17,17 +18,19 @@
     justify-content: center;
 }
 
-.banner .search{
+
+/*Searchbar container*/
+.searchbar .search{
     max-width: 900px;
     text-align: center;
 }
 
-.banner .search h2{
+.searchbar .search h2{
     font-size: 5em;
     color: #fff;
 }
 
-.banner .search p{
+.searchbar .search p{
     font-size: 1em;
     color: #fff;
 }
@@ -94,3 +97,5 @@ section {
     align-items: center;
     flex-direction: column;
 }
+
+/*Query form container*/

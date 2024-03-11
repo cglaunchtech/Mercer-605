@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from flask import Flask, render_template, request
+from db.queries import select_customers, search_customers
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app = Flask(__name__, template_folder='templates')
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        query = request.form.get('query', '')  # Get the search query from the form data
+        customers = search_customers(query)  # Perform customer search
+    else:
+        customers = select_customers()  # Fetch all customers
+    return render_template('index.html', customers=customers)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.run()
