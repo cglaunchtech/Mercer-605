@@ -7,42 +7,77 @@
 
 /*Top container ERD Banner*/
 .banner{
-    width: 100%;
-    min-height: 100vh;
-    padding: 5%;
-    background: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(ui/images/background.jpg);
-    background-position: center;
-    background-size: cover;
+    position: relative;
+    padding: 100px;
     display: flex;
+    min-height: 100vh;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
+}
+.banner .banner-head{
+    position: fixed;
+    top: 30px;
+    color: #31363F;
+    font-weight: 700;
+    font-size: 2em;
+    z-index: 100;
+    cursor: pointer;
+}
+.banner .erd{
+    position: absolute;
+    top: 0;
+    right: 60px;
+    height: 100%;
+}
+.banner .content{
+    position: relative;
+    max-width: 650px;
+    z-index: 1;
+    display: inline-block;
+}
+.banner .content h2{
+    color: #31363F;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.1em;
+}
+.banner .content p{
+    color: #31363F;
+    font-size: 1.1em;
+    margin: 20px 0 10px;
 }
 
-
 /*Searchbar container*/
+.searchbar{
+    padding: 100px;
+    min-width: 100vh;
+    min-height: 100vh;
+}
+
 .searchbar .search{
     max-width: 900px;
     text-align: center;
+    align-items: center;
 }
 
-.searchbar .search h2{
+.searchbar .search h1{
     font-size: 5em;
-    color: #fff;
+    color: #31363F;
 }
 
 .searchbar .search p{
     font-size: 1em;
-    color: #fff;
+    color: #31363F;
 }
 
 .search-bar{
     width: 100%;
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #EEEEEE;
     display: flex;
     align-items: center;
     border-radius: 60px;
-    padding: 10px 20px;
+    padding: 10px;
     backdrop-filter: blur(4px) saturate(180%);
 }
 
@@ -53,11 +88,11 @@
     outline: none;
     padding: 24px 20px;
     font-size: 20px;
-    color: #cac7ff;
+    color: #31363F;
 }
 
 ::placeholder{
-    color: #cac7ff;
+    color: #31363F;
 }
 
 .search-bar button img{
@@ -69,33 +104,57 @@
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    background: #58629b;
+    background: #31363F;
     cursor: pointer;
 
 }
 
-section {
+.searchbar .table{
+    padding: 20px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+/*Explanation*/
+.explanation{
     padding: 100px;
+    min-width: 100vh;
+    min-height: 100vh;
 }
-
-.titleText {
-    color: #111;
-    font-size: 2em;
-    font-weight: 300;
-}
-
-.titleText span{
-    color: #ff0157;
-    font-weight: 700;
-    font-size: 1.5em;
-}
-
-.title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/*Query form container*/
